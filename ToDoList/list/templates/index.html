@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for task in list %}
+        <h1>{{task.name}}</h1>
+        <mark>{{task.status}}</mark>
+        <p>{{task.desc}}</p>
+        <p>{{task.date}}</p>
+
+        <form action="/delete/{{task.id}}" method = "get"> <input type="submit" value="Удалить"> </form>
+        
+        <form action="/change/{{task.id}}" >
+            {{ form.as_p }}
+            <input type="submit" value='Изменить статус'>
+        </form>
+    {% endfor %}
+</body>
+</html>
