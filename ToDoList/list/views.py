@@ -5,6 +5,7 @@ from .forms import TasksForm
 def index(request):
     object_list = TasksModel.objects.all()
     form = TasksForm()
+    print(object_list.first().status)
     return render(request, "index.html", {"list": object_list, 'form': form})
 
 def delete_view(request, id):
